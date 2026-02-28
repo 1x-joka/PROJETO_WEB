@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Multas de Velocidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9c9d6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 95%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Multas de Velocidade</h1>
+    <p>Informe a velocidade do veículo:</p>
+    <p>Limite - 80km/h</p>
+    <input type="number" id="velocidade" placeholder="Velocidade (km/h)">
+    <button onclick="calcularMulta()">Verificar Multa</button>
+
+    <div class="resultado" id="resultado"></div>
+</div>
+
+<script>
+    function calcularMulta() {
+        // Obtendo a velocidade informada pelo usuário
+        var velocidade = document.getElementById("velocidade").value;
+        
+        // Convertendo a velocidade para um número
+        velocidade = parseInt(velocidade);
+
+        // Limite de velocidade
+        var limite = 80;
+
+        // Variável para mostrar o resultado
+        var resultado = document.getElementById("resultado");
+
+        // Verificando se a velocidade informada é válida
+        if (isNaN(velocidade) || velocidade <= 0) {
+            resultado.innerHTML = "Por favor, insira uma velocidade válida.";
+            resultado.style.color = "red";
+            return;
+        }
+
+        // Verificando a velocidade e calculando a multa
+        if (velocidade <= limite) {
+            resultado.innerHTML = "Você está dentro do limite de velocidade. Sem multa!";
+            resultado.style.color = "green";
+        } else {
+            var excesso = velocidade - limite;
+
+            if (excesso <= 20) {
+                resultado.innerHTML = "Você excedeu a velocidade em " + excesso + " km/h.<br>Multa leve! Valor: R$ 130,16 e 4 pontos na CNH";
+                resultado.style.color = "orange";
+            } else if (excesso <= 50) {
+                resultado.innerHTML = "Você excedeu a velocidade em " + excesso + " km/h.<br>Multa grave! Valor: R$ 195,23 e 5 pontos na CNH";
+                resultado.style.color = "red";
+            } else {
+                resultado.innerHTML = "Você excedeu a velocidade em " + excesso + " km/h.<br>Multa gravíssima! Valor: R$ 880,41 e Suspensão da CNH";
+                resultado.style.color = "darkred";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

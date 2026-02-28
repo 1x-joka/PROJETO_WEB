@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido no Restaurante</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #eef2f3;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: flex; /* Ativa o FlexBox */
+            flex-direction: column; /* Os itens serão alinhados horizontalmente (em colunas) */
+            gap: 12px; /* Espaça de 12 pixels entre os itens, é semelhante ao margin */
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 50px;
+            padding: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<form action="restaurante.php" method="get"> <!-- form = inicia o html; action = define para onde os dados serão enviados; method = define o método de envio, nesse caso é o GET -->
+    <h1>Quantidades Consumidas</h1>
+
+    <p>Refrigerante R$3,00: <input type="text" name="a" value="0" /></p>
+    <p>Suco R$5,50: <input type="text" name="b" value="0" /></p>
+    <p>Cheese Salada R$5,50: <input type="text" name="c" value="0" /></p>
+    <p>Cheese Burger R$4,00: <input type="text" name="d" value="0" /></p>
+    <p>Cheese Egg R$4,90: <input type="text" name="e" value="0" /></p>
+    <p>Cheese Calabresa R$8,00: <input type="text" name="f" value="0" /></p>
+    <p>Cheese Bacon R$9,00: <input type="text" name="g" value="0" /></p>
+    <p>Cheese Tudo R$12,00: <input type="text" name="h" value="0" /></p>
+
+    <input type="submit" value="Calcular Total" /> <!-- Cria um botão escrito Calcular Total -->
+</form>
+</body>
+</html>

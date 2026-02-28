@@ -1,0 +1,49 @@
+<!--Faça um programa que leia um número inteiro e mostre uma mensagem indicando se este número é par ou ímpar, 
+    e se é positivo ou negativo-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Positivo/Negativo</title>
+    <style>
+        body {
+            background-color: rgb(27, 98, 231);
+            color: black;
+            font: normal 15pt Tahoma;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.677);
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Programa Positivo/Negativo e Par ou Ímpar</h1>
+
+    <section>
+    <script>
+        var n = Number(prompt("Digite um número"))
+        if (n % 2 == 0 && n > 0) {
+            document.write(`O número é par e positivo`)
+        } else if (n % 2 == 0 && n < 0) {
+            document.write(`O número é par e negativo`)
+        } else if (n % 2 != 0 && n > 0) {
+            document.write(`O número é ímpar e positivo`)
+        } else {
+            document.write(`O número é ímpar e negativo`)
+        }
+    </script>
+    </section>
+</body>
+</html>
