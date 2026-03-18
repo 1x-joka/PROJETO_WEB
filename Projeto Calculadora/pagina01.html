@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function basico(){
+            let n1 = document.getElementById("n1").value;
+            if (n1 == "") {
+                alert("Por favor, insira um número");
+                return;
+            }
+            else {
+                // DOBRO
+                let dobro = n1 * 2;
+                let resultado1 = document.getElementById("resultado1");
+                resultado1.innerHTML = `O dobro de ${n1} é ${dobro}`;
+
+                // TRIPLO
+                let triplo = n1 * 3;
+                let resultado2 = document.getElementById("resultado2");
+                resultado2.innerHTML = `O triplo de ${n1} é ${triplo}`;
+
+                // QUÁDRUPLO
+                let quadruplo = n1 * 4;
+                let resultado3 = document.getElementById("resultado3");
+                resultado3.innerHTML = `O quádruplo de ${n1} é ${quadruplo}`;
+
+                // QUINTÚPLO
+                let quintuplo = n1 * 5;
+                let resultado4 = document.getElementById("resultado4");
+                resultado4.innerHTML = `O quintuplo de ${n1} é ${quintuplo}`;
+
+                // SEXTÚPLO
+                let sextuplo = n1 * 6;
+                let resultado5 = document.getElementById("resultado5")
+                resultado5.innerHTML = `O sextúplo de ${n1} é ${sextuplo}`;
+
+                // QUADRADO
+                let quadrado = n1 ** 2;
+                let resultado6 = document.getElementsByTagName("resultado6");
+                resultado6.innerHTML = `O quadrado de ${n1} é ${quadrado}`
+
+                // CUBO
+                let cubo = n1 ** 3;
+                let resultado7 = document.getElementById("resultado7")
+                resultado7.innerHTML = `O cubo de ${n1} é ${cubo}`
+
+                // QUARTA POTÊNCIA
+                let quartapotencia = n1 ** 4
+                let resultado8 = document.getElementById("resultado8")
+                resultado8.innerHTML = `${n1} elevado à quarta potência é ${quartapotencia}`
+
+                // QUINTA POTÊNCIA
+                let quintapotencia = n1 ** 5
+                let resultado9 = document.getElementById("resultado9")
+                resultado9.innerHTML = `${n1} elevado à quinta potência é ${quintapotencia}`
+
+                // SEXTA POTÊNCIA
+                let sextapotencia = n1 ** 6
+                let resultado10 = document.getElementById("resultado10")
+                resultado10.innerHTML = `${n1} elevado à sexta potência é ${sextapotencia}`
+            }
+        }
+
+        function bhaskara() {
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>CALCULADORA</h1>
+
+        <!-- CÁLCULOS SIMPLES -->
+        <h2>Cálculos Simples</h2>
+        <label for="n1">Número:</label>
+        <input type="number" placeholder="Insira um número" id="n1" required title="Insira um número">
+        <input type="submit" value="Calcular" id="basico" onclick="basico()">
+        <p id="resultado1"></p>
+        <p id="resultado2"></p>
+        <p id="resultado3"></p>
+        <p id="resultado4"></p>
+        <p id="resultado5"></p>
+        <p id="resultado6"></p>
+        <p id="resultado7"></p>
+        <p id="resultado8"></p>
+        <p id="resultado9"></p>
+        <p id="resultado10"></p>
+
+        <!-- BHÁSKARA -->
+        <h2>Bháskara</h2>
+        <label for="a">Coeficiente "a":</label><input type="number" id="a" title="Insira um número">
+        <label for="b">Coeficiente "b":</label><input type="number" id="b" title="Insira um número">
+        <label for="c">Coeficiente "c":</label><input type="number" id="c" title="Insira um número">
+        <input type="submit" value="Calcular" id="bhaskara" onclick="bhaskara()">
+        <p id="bhaskara"></p>
+    </div>
+</body>
+</html>

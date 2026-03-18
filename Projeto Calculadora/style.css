@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #1A1A1A;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    border: 3px solid transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 14px 0px #FF9F1C;
+}
+
+.container h1 {
+    color: #E0E0E0;
+    text-align: center;
+    padding: 15px;
+}
+
+.container h2 {
+    color: #E0E0E0;
+    text-align: center;
+    padding: 10px;
+    font-weight: normal;
+}
+
+.container p {
+    color: #E0E0E0;
+    padding: 3px;
+    font-weight: normal;
+}
+
+.container label {
+    color: #E0E0E0;
+}
+
+.container > #n1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.container > #n1:focus {
+    box-shadow: 0px 0px 14px 0px #FF9F1C;
+    transition: .3s;
+}
+
+.container > #basico {
+    background: linear-gradient(135deg, #FF9F1C, #f39c2a);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #1A1A1A;
+    border-radius: 4px;
+    padding: 7px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.container > #basico:hover {
+    transition: .3s;
+    transform: scale(1.02);
+}
