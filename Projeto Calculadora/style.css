@@ -10,8 +10,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh; /* Ajustando corte após o resultado dos cálculos */
     background-color: #1A1A1A;
+    padding: 20px 0px; /* Ajustando espaçamento superior da div e body após os cálculos */
 }
 
 .container {
@@ -47,19 +48,25 @@ body {
     color: #E0E0E0;
 }
 
-.container > #n1, #a, #b, #c {
+.container > #n1,
+.container > #a,
+.container > #b,
+.container > #c {
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
     border-radius: 5px;
 }
 
-.container > #n1:focus, #a:focus, #b:focus, #c:focus {
+.container > #n1:focus, 
+.container > #a:focus, 
+.container > #b:focus, 
+.container > #c:focus {
     box-shadow: 0px 0px 14px 0px #FF9F1C;
     transition: .3s;
 }
 
-.container > #basico, #bhaskara {
+.container > #basico, .container > #bhaskara {
     background: linear-gradient(135deg, #FF9F1C, #f39c2a);
     border: none;
     cursor: pointer;
@@ -71,7 +78,7 @@ body {
     margin-top: 6px;
 }
 
-.container > #basico:hover, #bhaskara:hover {
+.container > #basico:hover, .container > #bhaskara:hover {
     transition: .3s;
     transform: scale(1.02);
 }
