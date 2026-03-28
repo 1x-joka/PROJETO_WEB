@@ -5,8 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Vendas</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function habilitar(checkbox) {
+            let linha = checkbox.closest("tr") // Procurando qual tr o checkbox foi clicado
+            let verificacao = linha.querySelector("input[type='number']") // Procura o campo dentro dessa linha
+
+            if (checkbox.checked) {
+                verificacao.disabled = false;
+                verificaco.focus()
+            }
+            else {
+                verificacao.disabled = true;
+                verificacao.value = 0;
+            }
+        }
+    </script>
 </head>
 <body>
-    
+    <div class="container">
+
+        <fieldset class="vendas">
+            <legend>Controle de Vendas:</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto:</th>
+                        <th>Preço:</th>
+                        <th>Quantidade:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="regata">Camiseta Regata</label></td>
+                        <td class="preco">19,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="social">Camiseta Social</label></td>
+                        <td class="preco">59,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="blusa">Blusa</label></td>
+                        <td class="preco">119,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="pullover">Pullover</label></td>
+                        <td class="preco">39,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="sapato">Sapato</label></td>
+                        <td class="preco">99,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="calca">Calça</label></td>
+                        <td class="preco">38,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="meias">Meias</label></td>
+                        <td class="preco">9,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="luvas">Luvas</label></td>
+                        <td class="preco">24,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="jaqueta">Jaqueta</label></td>
+                        <td class="preco">329,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="bermuda">Bermuda</label></td>
+                        <td class="preco">69,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="chinelo">Chinelo</label></td>
+                        <td class="preco">14,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" onclick="habilitar(this)"><label for="bone">Boné</label></td>
+                        <td class="preco">6,90</td>
+                        <td><input type="number" value="0" min="0" disabled></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset class="pagamento">
+            <legend>Formas de Pagamento:</legend>
+            <div class="metodos">
+                <input type="radio" name="pagamento" id="vista"><label for="vista">À Vista</label>
+                <input type="radio" name="pagamento" id="prazo"><label for="prazo">À Prazo</label>
+            </div>
+
+            <div class="parcelas">
+                <label>Quantidades de Parcelas:</label>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </fieldset>
+    </div>
 </body>
 </html>
