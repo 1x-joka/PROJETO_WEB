@@ -6,24 +6,81 @@
     <title>Controle de Vendas</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function habilitar(checkbox) {
-            let linha = checkbox.closest("tr") // Procurando qual tr o checkbox foi clicado
-            let verificacao = linha.querySelector("input[type='number']") // Procura o campo dentro dessa linha
+    let gerenciarParcelas = () => {
+        let aPrazo = document.getElementById("prazo").checked; // Usa-se ".checked" para saber se ta selecionado ou para marcar ou desmarcar no js
+        let select = document.querySelector("select");
 
-            if (checkbox.checked) {
-                verificacao.disabled = false;
-                verificaco.focus()
-            }
-            else {
-                verificacao.disabled = true;
-                verificacao.value = 0;
-            }
+        if (aPrazo) {
+            select.disabled = false;
+            select.focus();
+        } else {
+            select.disabled = true;
+            select.value = "2";
         }
+    };
+
+    let habilitar = (checkbox) => {
+        let linha = checkbox.closest("tr"); // Olha para o checkbox e pergunta se ele é um tr, se sim, para ali, se não, ele vai verificando com os ancestrais acima até achar um tr
+        let verificacao = linha.querySelector("input[type='number']"); // Procura não no documento todo, mas apenas na respectiva linha
+
+        if (checkbox.checked) {
+            verificacao.disabled = false;
+            verificacao.value = 1;
+            verificacao.focus();
+        } else {
+            verificacao.disabled = true;
+            verificacao.value = 0;
+        }
+    };
+
+    let calcularTotal = () => {
+        let linhas = document.querySelectorAll("tbody tr"); // querySelectorAll pega todas as linhas que existem e coloca em uma lista; tbody tr = entra no tbody e pega todas as tr que tiver la dentro
+        let resultado = document.getElementById("resultado2");
+        let totalBruto = 0;
+
+        linhas.forEach(linha => { // Para cada linha da lista...
+            let check = linha.querySelector("input[type='checkbox']");
+            let qtd = linha.querySelector("input[type='number']").value;
+            let preco = parseFloat(linha.querySelector(".preco").innerText.replace(',', '.'));
+
+            if (check.checked) {
+                totalBruto += preco * parseInt(qtd);
+            }
+        });
+
+    let aVista = document.getElementById("vista").checked;
+    let aPrazo = document.getElementById("prazo").checked;
+    let numParcelas = parseInt(document.querySelector("select").value);
+
+    if (totalBruto === 0) {
+        resultado.innerHTML = "<span style='color: red'>Selecione um produto!</span>";
+        return;
+    }
+
+    if (!aVista && !aPrazo) {
+        resultado.innerHTML = "<span style='color: red;'>Selecione a forma de pagamento!</span>";
+        return;
+    }
+
+    if (aVista) {
+        let resultadoFinal = totalBruto * 0.915;
+        resultado.innerHTML = `Total à vista: <strong>R$ ${resultadoFinal.toFixed(2)}</strong>`;
+    } else {
+        let taxa = (totalBruto * 0.06) + (6.90 * numParcelas);
+        let totalComTaxa = totalBruto + taxa;
+        let valorParcela = totalComTaxa / numParcelas;
+
+        if (valorParcela < 10) {
+            resultado.innerHTML = `<span style='color: red;'>ERRO: Parcela de R$ ${valorParcela.toFixed(2)} é inferior a R$10,00</span>`;
+        } else {
+            resultado.innerHTML = `Total Parcelado: <strong>R$ ${totalComTaxa.toFixed(2)}</strong> (${numParcelas}x de R$ ${valorParcela.toFixed(2)})`;
+        }
+    }
+};
     </script>
 </head>
 <body>
     <div class="container">
-
         <fieldset class="vendas">
             <legend>Controle de Vendas:</legend>
             <table>
@@ -98,24 +155,26 @@
             </table>
         </fieldset>
 
-        <fieldset class="pagamento">
-            <legend>Formas de Pagamento:</legend>
-            <div class="metodos">
-                <input type="radio" name="pagamento" id="vista"><label for="vista">À Vista</label>
-                <input type="radio" name="pagamento" id="prazo"><label for="prazo">À Prazo</label>
-            </div>
-
-            <div class="parcelas">
-                <label>Quantidades de Parcelas:</label>
-                <select>
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-        </fieldset>
+        <div class="container2">
+            <fieldset class="pagamento">
+                <legend>Formas de Pagamento:</legend>
+                <div class="metodos">
+                    <input type="radio" name="pagamento" id="vista" onclick="gerenciarParcelas()"><label for="vista">À Vista</label>
+                    <input type="radio" name="pagamento" id="prazo" onclick="gerenciarParcelas()"><label for="prazo">À Prazo</label>
+                </div>
+                <div class="parcelas">
+                    <label>Quantidades de Parcelas:</label>
+                    <select disabled>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </fieldset>
+            <button onclick="calcularTotal()">Finalizar</button>
+            <div id="resultado"><p id="resultado2"></p></div>
+        </div>
     </div>
 </body>
 </html>

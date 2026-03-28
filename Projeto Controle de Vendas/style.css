@@ -1,9 +1,15 @@
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: Arial, sans-serif;
-    background-color: rgb(185, 182, 182);
+    background-color: var(--background);
+}
+
+:root {
+    --background: rgb(185, 182, 182);
+    --container: #a0a0a0;
+    --input: #e0e0e0;
 }
 
 body {
@@ -17,10 +23,10 @@ body {
 }
 
 fieldset {
-    border: 2px solid #a0a0a0;
+    border: 2px solid var(--container);
     border-radius: 8px;
     padding: 15px;
-    box-shadow: inset 1px 1px 2px white;
+    box-shadow: 1px 1px 2px white;
 }
 
 legend {
@@ -40,7 +46,7 @@ th, td {
 
 input[type="number"] {
     width: 50px;
-    background-color: #e0e0e0;
+    background-color: var(--input);
     border: 1px solid transparent;
     padding: 1px;
     text-align: center;
@@ -59,10 +65,31 @@ input[type="number"] {
 
 select {
     padding: 2px;
-    background-color: #e0e0e0;
+    background-color: var(--input);
 }
 
 label {
     padding: 5px;
     margin-bottom: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: var(--input);
+    cursor: pointer;
+    border: transparent;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0px 0px 14px 1px black;
+}
+
+button:hover {
+    transform: scale(1.03);
+    transition: .4s
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
