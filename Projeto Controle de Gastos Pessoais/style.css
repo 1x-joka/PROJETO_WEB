@@ -6,14 +6,57 @@
 }
 
 :root {
-    --background: #33332D;
+    --background: #33312B;
+    --sombras: #EABC1C;
 }
 
 body {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
 }
 
 #container {
-    border: 3px solid black;
+    border-radius: 20px;
+    background-color: white;
+    border: 3px solid transparent;
+    box-shadow: 0px 0px 18px 1px var(--sombras);
+    width: 30vw;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#filtro{
+    width: 110px;
+    padding: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+input:hover {
+    transition: .3s;
+    box-shadow: 0 0 5px var(--sombras);
+}
+
+#addgastos {
+    background-color: var(--background);
+    color: white;
+}
+
+#addgastos:hover {
+    transform: scale(1.02);
 }
