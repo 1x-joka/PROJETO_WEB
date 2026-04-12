@@ -60,3 +60,34 @@ input:hover {
 #addgastos:hover {
     transform: scale(1.02);
 }
+
+#lista {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#lista li {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+#lista button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#categoria {
+    width: 110px;
+    padding: 5px;
+}

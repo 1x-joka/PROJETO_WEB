@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Gastos Pessoais</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="container">
@@ -14,7 +14,13 @@
         <h2>Adicionar Gastos</h2>
         <label for="desc">Descrição:</label><input type="text" name="desc" id="desc" placeholder="Ex.: Almoço" title="Descreva o seu gasto">
         <label for="valor">Valor:</label><input type="number" name="valor" id="valor" placeholder="Ex.: 25.50" title="Insira o valor do seu gasto" min="0.10" step="0.01">
-        <label for="categoria">Categoria:</label><input type="number" name="categoria" id="categoria" title="Descreva a categoria do seu gasto" placeholder="Ex.: Alimentação">
+        <label for="categoria">Categoria:</label>
+        <select id="categoria">
+            <option value="">Selecione</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Lazer">Lazer</option>
+        </select>
         <input type="submit" value="Adicionar" id="addgastos" onclick="addGasto()">
         
         <!--LISTA DE GASTOS-->
@@ -25,6 +31,7 @@
             <option value="transporte">Transporte</option>
             <option value="lazer">Lazer</option>
         </select>
+        <ul id="lista"></ul> <!-- Onde vai aparecer os gastos -->
 
         <!--TOTAL-->
         <h2>Total Gasto: <span id="total">R$0,00</span></h2>
