@@ -49,7 +49,7 @@ const removerGasto = (index) => {
 const totalGasto = () => {
     let total = 0
 
-    gastos.forEach(function(gasto){
+    gastos.forEach(function(gasto){ // Soma o valor do respectivo gasto a cada incluído
         total = total + gasto.valor
     })
 
