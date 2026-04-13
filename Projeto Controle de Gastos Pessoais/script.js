@@ -1,18 +1,26 @@
 let gastos = []
 
-const addGasto = () => {
-    let descricao = document.getElementById("desc").value
-    let valor = document.getElementById("valor").value
-    let categoria = document.getElementById("categoria").value
+// Carregando os dados quando se abre a página
+const dados = localStorage.getItem("gastos")
+if (dados) {
+    gastos = JSON.parse(dados)
+    listarGasto()
+    totalGasto()
+}
 
-    if (descricao === "" || valor === "" || categoria === "") {
+const addGasto = () => {
+    let desc = document.getElementById("desc").value
+    let vl = document.getElementById("valor").value
+    let catg = document.getElementById("categoria").value
+
+    if (desc === "" || vl === "" || catg === "") {
         alert('Descreva seu gasto!')
         return
     }
     gastos.push({
-        descricao: descricao, // Adicionando na lista "gastos" o que o usuário digita, não um valor definido
-        valor: Number(valor),
-        categoria: categoria
+        descricao: desc, // Adicionando na lista "gastos" o que o usuário digita, não um valor definido
+        valor: Number(vl),
+        categoria: catg
     })
 
     salvar()
@@ -53,7 +61,7 @@ const totalGasto = () => {
         total = total + gasto.valor
     })
 
-    document.getElementById("total").innerText = "R$" + total
+    document.getElementById("total").innerText = "R$" + total.toFixed(2)
 }
 
 const salvar = () => {
