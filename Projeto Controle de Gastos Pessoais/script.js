@@ -1,18 +1,18 @@
 let gastos = []
 
 const addGasto = () => {
-    let descricao = document.getElementById("desc").value
-    let valor = document.getElementById("valor").value
-    let categoria = document.getElementById("categoria").value
+    let desc = document.getElementById("desc").value
+    let vl = document.getElementById("valor").value
+    let catg = document.getElementById("categoria").value
 
-    if (descricao === "" || valor === "" || categoria === "") {
+    if (desc === "" || vl === "" || catg === "") {
         alert('Descreva seu gasto!')
         return
     }
     gastos.push({
-        descricao: descricao, // Adicionando na lista "gastos" o que o usuário digita, não um valor definido
-        valor: Number(valor),
-        categoria: categoria
+        descricao: desc, // Adicionando na lista "gastos" o que o usuário digita, não um valor definido
+        valor: Number(vl),
+        categoria: catg
     })
 
     salvar()
@@ -21,8 +21,8 @@ const addGasto = () => {
 
     // Limpando os campos
     document.getElementById("desc").value = ""
-    document.getElementById("valor").value = ""
-    document.getElementById("categoria").value = ""
+    document.getElementById("vl").value = ""
+    document.getElementById("catg").value = ""
 }
 
 const listarGasto = () => {
