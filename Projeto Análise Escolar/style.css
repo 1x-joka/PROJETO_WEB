@@ -10,10 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: black;
+    background-color: rgb(174, 173, 173);
 }
 
-h1,label, p {
+h1, label, p {
     color: white;
 }
 
@@ -41,17 +41,13 @@ form {
     padding: 25px;
     border: transparent;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px 6px purple;
+    box-shadow: 0px 0px 15px 6px rgba(0, 0, 0, 0.429);
+    background-color: grey;
 }
 
 input {
     border-radius: 5px;
     padding: 2px;
-}
-
-input:focus {
-    transition: .3s;
-    box-shadow: 0px 0px 15px 6px purple;
 }
 
 button {
@@ -64,6 +60,134 @@ button {
 button:hover {
     transition: .3s;
     transform: scale(1.03);
-    background-color: purple;
+    background-color: grey;
     color: white;
+}
+
+/* CSS do relatorio.php */
+
+body.relatorio {
+    display: block;
+    background-color: #d0d0d0;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+body.relatorio h1,
+body.relatorio h2,
+body.relatorio p,
+body.relatorio label,
+body.relatorio td,
+body.relatorio th,
+body.relatorio span {
+    color: #1a1a1a;
+}
+
+body.relatorio p {
+    display: block;
+    margin-top: 0;
+    gap: 0;
+}
+
+.container-relatorio {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.container-relatorio h1 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid #9a9a9a;
+    padding-bottom: 10px;
+}
+
+.container-relatorio h2 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+
+.tabela-alunos {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tabela-alunos thead tr {
+    background-color: #7a7a7a;
+}
+
+.tabela-alunos th {
+    padding: 10px 12px;
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.tabela-alunos td {
+    padding: 9px 12px;
+    text-align: center;
+    border-top: 1px solid #aaaaaa;
+    background-color: #b8b8b8;
+    font-size: 0.88rem;
+}
+
+.tabela-alunos tbody tr:nth-child(even) td {
+    background-color: #adadad;
+}
+
+.dados {
+    background-color: #b8b8b8;
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.dados h2 {
+    margin-bottom: 12px;
+}
+
+.dados-aluno {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #9e9e9e;
+    margin-top: 0;
+}
+
+.dados-aluno span {
+    font-weight: bold;
+}
+
+.mensagem {
+    background-color: #b8b8b8;
+    border-radius: 8px;
+    padding: 16px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.voltar {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #7a7a7a;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    background-color: #5a5a5a;
+    transform: scale(1.03);
+    transition: .3s;
+    color: #f0f0f0;
 }
