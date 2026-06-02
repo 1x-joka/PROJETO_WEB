@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --background1: #a4d2e6;
+    --background2: #7bbde1;
+}
+
+body {
+    background: linear-gradient(var(--background2), var(--background1));
+    min-height: 100vh; /* O background terá que comportar 100% da tela */
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#container-pai {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: auto;
+    margin-top: auto;
+    gap: 15px;
+}
