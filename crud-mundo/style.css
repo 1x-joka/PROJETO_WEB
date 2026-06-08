@@ -1,45 +1,97 @@
+/* ==========================================
+   ESTILO CSS MUITO SIMPLIFICADO - BD MUNDO
+   ========================================== */
+
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 :root {
-    --background1: #a4d2e6;
-    --background2: #7bbde1;
+    --azul-claro: #a4d2e6;
+    --azul-escuro: #7bbde1;
+    --texto-escuro: #2c3e50;
+    --branco: #ffffff;
 }
 
 body {
-    background: linear-gradient(var(--background2), var(--background1));
-    min-height: 100vh; /* O background terá que comportar 100% da tela */
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px 0px;
-}
-
-h1 {
-    text-align: center;
-}
-
-#container {
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: white;
-
-    display: flex;
-    flex-direction: column;
+    background: linear-gradient(var(--azul-escuro), var(--azul-claro));
+    min-height: 100vh;
     padding: 20px;
+    color: #333;
 }
 
-#container-pai {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: auto;
-    margin-top: auto;
-    gap: 15px;
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--texto-escuro);
+}
+
+header h1 {
+    font-size: 24pt;
+    margin-bottom: 5px;
+}
+
+/* CENTRALIZANDO OS CONTAINERS MAINS */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ESTILIZANDO OS CARDS */
+.crud-section {
+    background-color: var(--branco);
+    border: 2px solid var(--texto-escuro);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.crud-section h2 {
+    font-size: 14pt;
+    color: var(--texto-escuro);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* ESPAÇANDO OS ITENS DOS CARDS DE FORMS */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-bottom: 4px;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-size: 10pt;
+}
+
+/* BOTÕES */
+.salvar {
+    width: 100%;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 11pt;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.salvar:hover {
+    background-color: #219653;
 }
