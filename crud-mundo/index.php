@@ -1,3 +1,23 @@
+<?php
+// 1. Definições de conexão ao banco de dados
+$host = "localhost";
+$banco = "bd_mundo";
+$usuario = "root";
+$senha = "";
+
+try {
+    // 2. Cria a conexão PDO
+    $pdo = new PDO("mysql:host=$host;dbname=$banco;charset=utf8mb4", $usuario, $senha);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro ao conectar ao banco de dados: " . $e->getMessage());
+}
+
+// 3. Procura os dados no banco de dados para alimentar os <select> do HTML
+$continentes = $pdo->query("SELECT id_continente, nome_continente FROM continente")->fetchAll(PDO::FETCH_ASSOC);
+$paises = $pdo->query("SELECT id_pais, nome_pais FROM pais")->fetchAll(PDO::FETCH_ASSOC);
+$cidades = $pdo->query("SELECT id_cidade, nome_cidade FROM cidade")->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -104,7 +124,11 @@
                             <label for="cidade_pais">País Pertencente:</label>
                             <select id="cidade_pais" name="pais_id" required>
                                 <option value="">Selecione um País...</option>
-                                <!-- Dinâmico via PHP -->
+                                <?php foreach ($paises as $p): ?>
+                                    <option value="<?php echo $p['id_pais']; ?>">
+                                        <?php echo htmlspecialchars($p['nome_pais']); ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">

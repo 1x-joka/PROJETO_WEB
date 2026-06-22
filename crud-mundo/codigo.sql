@@ -1,5 +1,11 @@
+drop database if exists bd_mundo;
 create database bd_mundo;
 use bd_mundo;
+
+DROP TABLE IF EXISTS governante;
+DROP TABLE IF EXISTS cidade;
+DROP TABLE IF EXISTS pais;
+DROP TABLE IF EXISTS continente;
 
 -- Tabela Continente
 create table continente (
@@ -50,5 +56,3 @@ create table governante (
     foreign key (id_pais) references pais(id_pais),
     foreign key (id_cidade) references cidade(id_cidade)
 );
-
-select * from continente;
