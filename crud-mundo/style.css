@@ -56,3 +56,40 @@ h1, h2 {
 .salvar:hover {
     background-color: #219653;
 }
+
+/* ================= ESTILOS DAS TABELAS ================= */
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.tabela-dados th, .tabela-dados td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.tabela-dados th {
+    background-color: var(--azul-escuro);
+    color: white;
+    font-weight: bold;
+}
+.tabela-dados tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.tabela-dados tr:hover {
+    background-color: #f1f1f1;
+}
+.btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.btn-excluir:hover {
+    background-color: #c0392b;
+}
