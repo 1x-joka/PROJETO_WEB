@@ -1,97 +1,58 @@
-/* ==========================================
-   ESTILO CSS MUITO SIMPLIFICADO - BD MUNDO
-   ========================================== */
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box; font-family: Arial, sans-serif;
 }
-
 :root {
     --azul-claro: #a4d2e6;
     --azul-escuro: #7bbde1;
-    --texto-escuro: #2c3e50;
     --branco: #ffffff;
 }
-
 body {
     background: linear-gradient(var(--azul-escuro), var(--azul-claro));
-    min-height: 100vh;
     padding: 20px;
+}
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
     color: #333;
 }
-
-header {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--texto-escuro);
-}
-
-header h1 {
-    font-size: 24pt;
-    margin-bottom: 5px;
-}
-
-/* CENTRALIZANDO OS CONTAINERS MAINS */
 .main-container {
     max-width: 800px;
     margin: 0 auto;
 }
-
-/* ESTILIZANDO OS CARDS */
 .crud-section {
     background-color: var(--branco);
-    border: 2px solid var(--texto-escuro);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-.crud-section h2 {
-    font-size: 14pt;
-    color: var(--texto-escuro);
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-}
-
-/* ESPAÇANDO OS ITENS DOS CARDS DE FORMS */
 .form-group {
     margin-bottom: 12px;
 }
-
 .form-group label {
     display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    font-size: 10pt;
-    margin-bottom: 4px;
+    font-size: 14px;
 }
-
-.form-group input, 
-.form-group select {
+.form-group input, .form-group select {
     width: 100%;
     padding: 8px;
     border: 1px solid #999;
     border-radius: 4px;
-    font-size: 10pt;
 }
-
-/* BOTÕES */
 .salvar {
     width: 100%;
     padding: 10px;
     background-color: #27ae60;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 11pt;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
+    border-radius: 4px;
 }
-
 .salvar:hover {
     background-color: #219653;
 }
