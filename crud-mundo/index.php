@@ -1,5 +1,20 @@
 <?php
-// 1. Conexão ao banco
+
+// Proteção para impedir que usuários não autenticados ou em seu primeiro acesso naveguem pelo sistema sem autorização
+session_start();
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+if ($_SESSION['primeiro_acesso'] == 1) {
+    header("Location: trocar_senha.php");
+    exit();
+}
+// ... restante do código do index.php
+
+// Conexão ao banco
 $host = "localhost";
 $banco = "bd_mundo";
 $usuario = "root";
@@ -12,12 +27,12 @@ try {
     die("Erro ao conectar ao banco de dados: " . $e->getMessage());
 }
 
-// 2. Buscando dados para os selects dos formulários
+// Buscando dados para os selects dos formulários
 $continentes = $pdo->query("SELECT id_continente, nome_continente FROM continente")->fetchAll(PDO::FETCH_ASSOC);
 $paises = $pdo->query("SELECT id_pais, nome_pais FROM pais")->fetchAll(PDO::FETCH_ASSOC);
 $cidades = $pdo->query("SELECT id_cidade, nome_cidade FROM cidade")->fetchAll(PDO::FETCH_ASSOC);
 
-// 3. Buscando dados completos para preencher as tabelas de listagem
+// Buscando dados completos para preencher as tabelas de listagem
 $lista_continentes = $pdo->query("SELECT * FROM continente")->fetchAll(PDO::FETCH_ASSOC);
 $lista_paises = $pdo->query("SELECT p.*, c.nome_continente FROM pais p LEFT JOIN continente c ON p.id_continente = c.id_continente")->fetchAll(PDO::FETCH_ASSOC);
 $lista_cidades = $pdo->query("SELECT c.*, p.nome_pais FROM cidade c LEFT JOIN pais p ON c.id_pais = p.id_pais")->fetchAll(PDO::FETCH_ASSOC);

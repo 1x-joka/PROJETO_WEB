@@ -51,3 +51,27 @@ create table governante (
     foreign key (id_pais) references pais(id_pais),
     foreign key (id_cidade) references cidade(id_cidade)
 );
+
+-- Tabela USUARIOS
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    login VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL, -- Armazenará o hash da senha
+    tentativas_com_erro INT DEFAULT 0,
+    bloqueado TINYINT(1) DEFAULT 0,
+    primeiro_acesso TINYINT(1) DEFAULT 1
+);
+
+-- Tabela LOGS
+CREATE TABLE logs (
+    id_log INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NULL,
+    acao VARCHAR(100) NOT NULL,
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ip_origem VARCHAR(45) NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE SET NULL
+);
+
+-- Usuário inicial para testes (Login: admin | Senha: 123)
+INSERT INTO usuarios (login, senha, primeiro_acesso) 
+VALUES ('admin', '$2y$10$wO08sX7wFw9U3hWkK7zH6eN.6o/hG8i719FvUoD5/P7J.z4v4I7.K', 1);
