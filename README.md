@@ -51,21 +51,25 @@ Organização do diretório e arquivos do repositório:
 
 ```text
 crud-mundo/
-├── .gitattributes       # Configurações de atributos do Git
-├── LICENSE              # Licença do repositório
-├── README.md            # Documentação principal do repositório
-├── cidade.php           # Gestão e listagem de cidades
-├── codigo.sql           # Script de criação e população do banco de dados MySQL
-├── continente.php       # Gestão e listagem de continentes
-├── governante.php       # Gestão e listagem de governantes
-├── index.html           # Página inicial / estrutura base de apresentação
-├── index.php            # Dashboard / página principal em PHP
-├── login.php            # Tela de autenticação e login de usuários
-├── manutencao_senha.php # Painel de recuperação/manutenção de senhas
-├── pais.php             # Gestão e listagem de países
-├── script.js            # Comportamentos interativos no Front-end
-├── style.css            # Estilização visual da aplicação
-└── trocar_senha.php     # Formulário para troca de senha
+├── .gitattributes           # Configurações de atributos do Git
+├── LICENSE                  # Licença do repositório
+├── README.md                # Documentação principal do repositório
+├── index.html               # Página inicial / estrutura base de apresentação
+├── index.php                # Dashboard / página principal em PHP
+├── crud-mundo/
+    ├── cidade.php           # Gestão e listagem de cidades
+    ├── login.php            # Tela de autenticação e login de usuários
+    ├── manutencao_senha.php # Painel de recuperação/manutenção de senhas
+    ├── pais.php             # Gestão e listagem de países
+    ├── continente.php       # Gestão e listagem de continentes
+    ├── governante.php       # Gestão e listagem de governantes
+    └── trocar_senha.php     # Formulário para troca de senha
+├── estilo/
+    ├── style.css            # Estilização visual da aplicação
+├── script/
+    ├── script.js            # Comportamentos interativos no Front-end
+├── banco-de-dados/
+    ├── codigo.sql           # Script de criação e população do banco de dados MySQL
 ```
 
 ---
